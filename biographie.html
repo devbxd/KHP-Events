@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Biographie</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
@@ -12,19 +13,28 @@
       color: #f5f5f5;
     }
 
+    /* NAVBAR */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 40px;
+      padding: 10px 20px;
       background-color: rgba(0, 0, 0, 0.7);
       position: sticky;
       top: 0;
       z-index: 1000;
+      flex-wrap: wrap;
     }
 
     .logo img {
-      height: 200px;
+      height: 120px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #ae8b38;
     }
 
     .nav-links {
@@ -33,29 +43,25 @@
       gap: 20px;
     }
 
-    .nav-links li {
-      display: inline-block;
-    }
-
-    .nav-links a {
-      color: #ae8b38 ;
+    .nav-links li a {
+      color: #ae8b38;
       text-decoration: none;
       font-weight: 500;
       font-size: 16px;
-      transition: color 0.3s ease;
     }
 
     .nav-links a:hover {
-      color: #ae8b38;
+      color: #fff;
     }
 
+    /* BIOGRAPHIE */
     .biography-container {
       max-width: 1200px;
       margin: 50px auto;
       padding: 20px;
       display: flex;
       gap: 40px;
-      align-items: flex-start; 
+      align-items: flex-start;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -67,21 +73,14 @@
       gap: 30px;
     }
 
-    .bio-text {
-      background-color: transparent;
-      padding: 30px;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
     .bio-text h2 {
       color: #ae8b38;
-      margin-bottom: 20px;
-      font-size: 32px;
+      font-size: 28px;
+      margin-bottom: 15px;
     }
 
     .bio-text p {
-      line-height: 1.7;
+      line-height: 1.6;
       font-size: 16px;
     }
 
@@ -90,7 +89,6 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      align-items: center;
     }
 
     .photo-box {
@@ -99,119 +97,15 @@
       background-color: #222;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
-      max-height: 300px;
     }
 
     .photo-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 0 10px;
-      }
-
-      .biography-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .bio-texts,
-      .bio-photos {
-        flex: 1 1 100%;
-        max-width: 100%;
-        padding: 0 10px;
-      }
-
-      .logo img {
-        height: 80px;
-      }
-
-      .bio-text h2 {
-        font-size: 22px;
-      }
-
-      .bio-text p {
-        font-size: 14px;
-        line-height: 1.6;
-      }
-
-      .photo-box {
-        aspect-ratio: auto;
-        height: 200px;
-      }
-    }
-
-    .event-gallery {
-      max-width: 1200px;
-      margin: 80px auto 50px;
-      padding: 0 20px;
-      text-align: center;
-    }
-
-    .event-gallery h2 {
-      color: #ae8b38;
-      margin-bottom: 40px;
-      font-size: 28px;
-    }
-
-    .event-cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-    }
-
-    .event-card {
-      background-color: #1c1c1c;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
-      overflow: hidden;
-      max-width: 300px;
-      flex: 1 1 300px;
-    }
-
-    .event-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .event-card p {
-      padding: 15px;
-      font-size: 14px;
-      color: #ddd;
-    }
-
-    .video-section {
-      max-width: 800px;
-      margin: 80px auto;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .video-section h2 {
-      color: #ae8b38;
-      margin-bottom: 20px;
-      font-size: 28px;
-    }
-
-    .video-wrapper video {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
-    }
-
-    .video-caption {
-      margin-top: 15px;
-      font-size: 15px;
-      color: #ccc;
-    }
-
+    /* BACKGROUND VIDEO */
     .background-video {
       position: fixed;
       top: 0;
@@ -222,6 +116,41 @@
       z-index: -1;
       opacity: 0.2;
       pointer-events: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .logo img {
+        height: 80px;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding-top: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .biography-container {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .bio-text h2 {
+        font-size: 20px;
+      }
+
+      .bio-text p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -235,11 +164,12 @@
     <div class="logo">
       <img src="1.jpg" alt="Logo" />
     </div>
-    <ul class="nav-links">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="Booking.html">Booking</a></li>
-      <li><a href="biographie.html"> DJ Kheem H</a></li>
-      <li><a href="location.html"> Location </a></li>
+      <li><a href="biographie.html">DJ Kheem H</a></li>
+      <li><a href="location.html">Location</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
@@ -248,37 +178,24 @@
     <div class="bio-texts">
       <div class="bio-text">
         <h2>Biographie – Créateur d'entreprise KHP Events</h2>
-        <p>
-          Kheem H est un entrepreneur franco-afghan visionnaire, basé en Suisse, fondateur de KHP Events, une agence spécialisée dans la conception d’expériences musicales et artistiques haut de gamme. Fort de plus de 30 ans dans l’univers de la musique, Kheem a su transformer sa passion en une entreprise innovante qui fusionne musiques du monde, cultures et technologies événementielles.
-
-Sous sa direction, KHP Events s’est imposée comme une référence dans l’organisation de soirées et de festivals exclusifs à travers le monde, de Genève à New York, en passant par Saint-Tropez ou Dubaï. Grâce à un réseau international et une expertise reconnue en direction artistique, Kheem crée des univers immersifs qui marquent les esprits, collaborant avec des lieux prestigieux et des artistes de renommée mondiale.
-
-Plus qu’un simple créateur d’événements, Kheem H incarne une approche humaine et métissée de l’événementiel, alliant excellence artistique, exigence esthétique et sens profond de l’expérience client.
-        </p>
+        <p>Kheem H est un entrepreneur franco-afghan...</p>
       </div>
       <div class="bio-text">
         <h2>Biographie – DJ & Producteur</h2>
-        <p>
-           Kheem H est un DJ, producteur et directeur artistique français d’origine afghane, basé en Suisse. Actif depuis plus de 30 ans, il s’est imposé comme une figure incontournable de la scène électro internationale grâce à un style unique mêlant musiques du monde et sonorités électroniques.
-
-Au fil de sa carrière, il a partagé la scène avec des icônes comme David Guetta, Martin Garrix, ou HUGEL, et s’est produit dans des lieux emblématiques à travers le monde — de New York à Londres, en passant par San Francisco, Monaco ou Saint-Tropez.
-
-Reconnu pour sa capacité à faire voyager les publics à travers ses sets, Kheem propose une vision musicale métissée, ouverte et profondément humaine. Son art ne se limite pas à mixer : il construit de véritables expériences sensorielles, où chaque son est une invitation au voyage.
-
-En parallèle de ses performances, il occupe le rôle de directeur artistique pour plusieurs établissements prestigieux, dont Les Voiles à Genève, où il façonne des ambiances musicales sophistiquées, toujours empreintes d’émotion et de finesse.
-        </p>
+        <p>Kheem H est un DJ, producteur et directeur artistique...</p>
       </div>
     </div>
-
     <div class="bio-photos">
-      <div class="photo-box">
-        <img src="2.png" alt="DJ en action" />
-      </div>
-      <div class="photo-box">
-        <img src="3.png" alt="Performance live" />
-      </div>
+      <div class="photo-box"><img src="2.png" alt="DJ en action" /></div>
+      <div class="photo-box"><img src="3.png" alt="Performance live" /></div>
     </div>
   </section>
 
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
