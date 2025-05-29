@@ -192,6 +192,44 @@
         font-size: 14px;
       }
     }
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #ae8b38;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
@@ -205,6 +243,7 @@
     <div class="logo">
       <img src="1.jpg" alt="Logo" />
     </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="Booking.html">Booking</a></li>
@@ -249,6 +288,24 @@
       <input type="submit" value="Envoyer">
     </form>
   </div>
+
+
+
+<script>
+
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+
+
+
+</script>
+
+
+
 
 </body>
 </html>
