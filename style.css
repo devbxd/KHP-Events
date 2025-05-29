@@ -235,3 +235,9 @@ ul {
     transform: translateX(-50%);
   }
 }
+
+
+.logo-img {
+  height: 140px;
+  max-width: 100%;
+}
