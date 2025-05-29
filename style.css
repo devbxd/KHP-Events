@@ -49,47 +49,22 @@ ul {
   z-index: 0;
 }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  color: #ae8b38;
-  flex-wrap: wrap;
-}
+  @media (max-width: 400px) {
+      .nav-links {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .nav-links a {
+        font-size: 14px;
+      }
 
 .logo img {
   height: 140px;
   max-width: 100%;
 }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
-.nav-links li {
-  display: inline-block;
-}
-
-.nav-links a {
-  color: #ae8b38;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #fff;
-}
 
 /* HERO CONTENT */
 .hero-content {
