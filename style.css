@@ -8,10 +8,9 @@
 body, html {
   font-family: 'Segoe UI', sans-serif;
   color: #ae8b38;
-  background-color: transparent; /* ✅ au lieu de noir */
+  background-color: transparent;
   scroll-behavior: smooth;
 }
-
 
 a {
   text-decoration: none;
@@ -49,65 +48,45 @@ ul {
   z-index: 0;
 }
 
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 50px; 
-  position: absolute; 
+  padding: 10px 40px; /* taille d'origine */
+  background-color: rgba(0, 0, 0, 0.7);
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  color: #ae8b38; 
-  margin-top: -50px;
-}
-
-
-.logo {
-  font-size: 28px;
-  font-weight: bold;
+  z-index: 1000;
   color: #ae8b38;
-  letter-spacing: 2px;
+  margin-top: 0; /* enlever margin négatif */
 }
 
-   .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      background-color: rgba(0, 0, 0, 0.7);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+.logo img {
+  height: 200px; /* taille d'origine */
+}
 
-
-
-   .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
 
 .nav-links li {
-      display: inline-block;
-    }
+  display: inline-block;
+}
 
-   .nav-links a {
-      color: #ae8b38 ;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 16px;
-      transition: color 0.3s ease;
-    }
+.nav-links a {
+  color: #ae8b38;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
 
+.nav-links a:hover {
+  color: #fff;
+}
 
-
-
-     .nav-links a:hover {
-      color: #ae8b38;
-    }
 /* HERO CONTENT */
 .hero-content {
   position: absolute;
@@ -133,45 +112,63 @@ ul {
 }
 
 .btn {
-  background-color: #ae8b38 ;
+  background-color: #ae8b38;
   padding: 14px 30px;
   border-radius: 50px;
   text-decoration: none;
   color: white;
   font-weight: bold;
   transition: background-color 0.3s ease;
+  display: inline-block;
 }
 
 .btn:hover {
-  background-color: #ae8b38 ;
+  background-color: #fff;
+  color: #ae8b38;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 20px;
+  }
+
+  .logo img {
+    height: 120px; /* réduire la taille logo sur mobile */
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .hero-content {
+    max-width: 90%;
+    padding: 10px;
   }
 
   .hero-content h2 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .hero-content p {
     font-size: 16px;
+    margin-bottom: 20px;
   }
 
   .btn {
     padding: 12px 24px;
+    font-size: 16px;
   }
 }
 
+/* IMAGE SLIDER (si besoin) */
 .image-slider-section {
   padding: 40px 0;
   background-color: #000;
@@ -182,7 +179,7 @@ ul {
   overflow: hidden;
   position: relative;
   width: 100%;
-   margin-top: -300px; 
+  margin-top: -300px;
 }
 
 .slide-track {
@@ -200,7 +197,6 @@ ul {
   flex-shrink: 0;
 }
 
-/* Animation défilement */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -209,4 +205,3 @@ ul {
     transform: translateX(-50%);
   }
 }
-
