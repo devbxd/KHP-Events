@@ -67,13 +67,12 @@
       gap: 30px;
     }
 
-   .bio-text {
-  background-color: transparent; 
-  padding: 30px;
-  border-radius: 0; 
-  box-shadow: none; 
-}
-
+    .bio-text {
+      background-color: transparent;
+      padding: 30px;
+      border-radius: 0;
+      box-shadow: none;
+    }
 
     .bio-text h2 {
       color: #ae8b38;
@@ -86,7 +85,6 @@
       font-size: 16px;
     }
 
-    /* Colonne droite: photos verticales */
     .bio-photos {
       flex: 1 1 300px;
       display: flex;
@@ -102,6 +100,7 @@
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+      max-height: 300px;
     }
 
     .photo-box img {
@@ -112,22 +111,41 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        padding: 0 10px;
+      }
+
       .biography-container {
         flex-direction: column;
         align-items: center;
       }
 
-      .bio-texts, .bio-photos {
+      .bio-texts,
+      .bio-photos {
         flex: 1 1 100%;
-        max-width: 600px;
+        max-width: 100%;
+        padding: 0 10px;
       }
 
       .logo img {
-        height: 120px;
+        height: 80px;
+      }
+
+      .bio-text h2 {
+        font-size: 22px;
+      }
+
+      .bio-text p {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .photo-box {
+        aspect-ratio: auto;
+        height: 200px;
       }
     }
 
-    /* Le reste inchangé */
     .event-gallery {
       max-width: 1200px;
       margin: 80px auto 50px;
@@ -195,61 +213,53 @@
     }
 
     .background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  opacity: 0.2; 
-  pointer-events: none;
-}
-
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.2;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
 
-
-
   <video autoplay muted loop class="background-video">
-  <source src="video.mp4" type="video/mp4" />
+    <source src="video.mp4" type="video/mp4" />
   </video>
-
-
 
   <nav class="navbar">
     <div class="logo">
-      <img src="1.jpg" alt="Logo" style="height: 200px;" />
+      <img src="1.jpg" alt="Logo" />
     </div>
-   <ul class="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="Booking.html">Booking</a></li>
-    <li><a href="biographie.html"> DJ Kheem H</a></li>
-    <li><a href="location.html"> Location  </a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="Booking.html">Booking</a></li>
+      <li><a href="biographie.html"> DJ Kheem H</a></li>
+      <li><a href="location.html"> Location </a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
   <section class="biography-container">
-
-    <!-- Colonne gauche avec les 2 bios -->
     <div class="bio-texts">
       <div class="bio-text">
-        <h2> Biographie – Créateur d'entreprise KHP Events</h2>
+        <h2>Biographie – Créateur d'entreprise KHP Events</h2>
         <p>
-        Kheem H est un entrepreneur franco-afghan visionnaire, basé en Suisse, fondateur de KHP Events, une agence spécialisée dans la conception d’expériences musicales et artistiques haut de gamme. Fort de plus de 30 ans dans l’univers de la musique, Kheem a su transformer sa passion en une entreprise innovante qui fusionne musiques du monde, cultures et technologies événementielles.
+          Kheem H est un entrepreneur franco-afghan visionnaire, basé en Suisse, fondateur de KHP Events, une agence spécialisée dans la conception d’expériences musicales et artistiques haut de gamme. Fort de plus de 30 ans dans l’univers de la musique, Kheem a su transformer sa passion en une entreprise innovante qui fusionne musiques du monde, cultures et technologies événementielles.
 
 Sous sa direction, KHP Events s’est imposée comme une référence dans l’organisation de soirées et de festivals exclusifs à travers le monde, de Genève à New York, en passant par Saint-Tropez ou Dubaï. Grâce à un réseau international et une expertise reconnue en direction artistique, Kheem crée des univers immersifs qui marquent les esprits, collaborant avec des lieux prestigieux et des artistes de renommée mondiale.
 
-Plus qu’un simple créateur d’événements, Kheem H incarne une approche humaine et métissée de l’événementiel, alliant excellence artistique, exigence esthétique et sens profond de l’expérience client. 
+Plus qu’un simple créateur d’événements, Kheem H incarne une approche humaine et métissée de l’événementiel, alliant excellence artistique, exigence esthétique et sens profond de l’expérience client.
         </p>
       </div>
-
       <div class="bio-text">
-        <h2>Biographie – DJ & Producteur </h2>
+        <h2>Biographie – DJ & Producteur</h2>
         <p>
-         Kheem H est un DJ, producteur et directeur artistique français d’origine afghane, basé en Suisse. Actif depuis plus de 30 ans, il s’est imposé comme une figure incontournable de la scène électro internationale grâce à un style unique mêlant musiques du monde et sonorités électroniques.
+           Kheem H est un DJ, producteur et directeur artistique français d’origine afghane, basé en Suisse. Actif depuis plus de 30 ans, il s’est imposé comme une figure incontournable de la scène électro internationale grâce à un style unique mêlant musiques du monde et sonorités électroniques.
 
 Au fil de sa carrière, il a partagé la scène avec des icônes comme David Guetta, Martin Garrix, ou HUGEL, et s’est produit dans des lieux emblématiques à travers le monde — de New York à Londres, en passant par San Francisco, Monaco ou Saint-Tropez.
 
@@ -260,7 +270,6 @@ En parallèle de ses performances, il occupe le rôle de directeur artistique po
       </div>
     </div>
 
-    <!-- Colonne droite avec photos -->
     <div class="bio-photos">
       <div class="photo-box">
         <img src="2.png" alt="DJ en action" />
@@ -269,7 +278,6 @@ En parallèle de ses performances, il occupe le rôle de directeur artistique po
         <img src="3.png" alt="Performance live" />
       </div>
     </div>
-
   </section>
 
 </body>
