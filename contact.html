@@ -1,215 +1,197 @@
-/* RESET & BASE */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
 
-body, html {
-  font-family: 'Segoe UI', sans-serif;
-  color: #ae8b38;
-  background-color: transparent;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.2;
+      pointer-events: none;
+    }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
 
-ul {
-  list-style: none;
-}
+    .logo img {
+      height: 100px;
+      max-width: 100%;
+      height: auto;
+    }
 
-/* HERO & VIDEO */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding-left: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
 
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
+    .nav-links li {
+      display: inline-block;
+    }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5);
-  z-index: 0;
-}
+    .nav-links a {
+      color: #ae8b38;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
 
-/* NAVBAR */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 40px;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  color: #ae8b38;
-  flex-wrap: wrap;
-}
+    .nav-links a:hover {
+      color: #fff;
+    }
 
-.logo img {
-  height: 140px;
-  max-width: 100%;
-}
+    .contact-container {
+      max-width: 600px;
+      margin: 80px auto 40px;
+      padding: 30px 20px;
+      background-color: rgba(61, 54, 54, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+      box-sizing: border-box;
+    }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+    .contact-container h2 {
+      color: #ae8b38;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
 
-.nav-links li {
-  display: inline-block;
-}
+    .contact-info {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
 
-.nav-links a {
-  color: #ae8b38;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
+    .contact-info p {
+      margin: 6px 0;
+    }
 
-.nav-links a:hover {
-  color: #fff;
-}
+    .contact-info a {
+      color: #ae8b38;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
 
-/* HERO CONTENT */
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  z-index: 1;
-  max-width: 800px;
-  padding: 20px;
-}
+    .contact-info img {
+      width: 20px;
+      height: 20px;
+    }
 
-.hero-content h2,
-.hero-content p {
-  text-shadow: 0 2px 6px rgba(0,0,0,0.8);
-}
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-.hero-content h2 {
-  font-size: 48px;
-}
+    label {
+      font-weight: 600;
+      color: #f0f0f0;
+    }
 
-.hero-content p {
-  font-size: 20px;
-  margin-bottom: 30px;
-  color: #ccc;
-}
+    input, select, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #333;
+      color: #fff;
+      resize: vertical;
+    }
 
-.btn {
-  background-color: #ae8b38;
-  padding: 14px 30px;
-  border-radius: 50px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  display: inline-block;
-}
+    input::placeholder,
+    textarea::placeholder {
+      color: #aaa;
+    }
 
-.btn:hover {
-  background-color: #fff;
-  color: #ae8b38;
-}
+    input[type="submit"] {
+      background-color: #ae8b38;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+    }
 
+    input[type="submit"]:hover {
+      background-color: #fff;
+    }
 
-  .logo img {
-    height: 100px;
-  }
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 20px;
+      }
 
-  @media (max-width: 400px) {
+      .logo img {
+        height: 80px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .contact-container {
+        margin: 40px 15px 20px;
+        padding: 20px 15px;
+      }
+
+      .contact-container h2 {
+        font-size: 24px;
+      }
+
+      input, select, textarea {
+        font-size: 14px;
+      }
+
+      input[type="submit"] {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 400px) {
       .nav-links {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
       }
 
       .nav-links a {
         font-size: 14px;
       }
-
-
-      /* Cacher la barre de navigation horizontale sur les petits écrans */
-@media (max-width: 768px) {
-  .navbar {
-    display: none;
-  }
-  .navbar-mobile {
-    display: block;
-  }
-}
-
-/* Styles pour le menu hamburger */
-.navbar-mobile {
-  display: none;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar-mobile a {
-  color: #ae8b38;
-  text-decoration: none;
-  font-size: 20px;
-  margin: 10px 0;
-}
-
-/* Afficher le menu hamburger */
-.menu-toggle {
-  display: block;
-  cursor: pointer;
-  font-size: 30px;
-  color: #ae8b38;
-}
-
-
-  .hero-content {
-    max-width: 90%;
-    padding: 10px;
-  }
-
-  .hero-content h2 {
-    font-size: 28px;
-  }
-
-  .hero-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .btn {
-    padding: 12px 24px;
-    font-size: 16px;
-  }
-}
+    }
 
 .menu-toggle {
   display: none;
@@ -247,40 +229,83 @@ ul {
 }
 
 
-/* IMAGE SLIDER (si besoin) */
-.image-slider-section {
-  padding: 40px 0;
-  background-color: #000;
-  text-align: center;
-}
 
-.slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  margin-top: -300px;
-}
+  </style>
+</head>
+<body>
 
-.slide-track {
-  display: flex;
-  width: calc(300px * 10);
-  animation: scroll 20s linear infinite;
-}
+  <video autoplay muted loop class="background-video">
+    <source src="video.mp4" type="video/mp4" />
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
 
-.slide-track img {
-  width: 300px;
-  height: 200px;
-  margin: 0 10px;
-  object-fit: cover;
-  border-radius: 10px;
-  flex-shrink: 0;
-}
+  <nav class="navbar">
+    <div class="logo">
+      <img src="1.jpg" alt="Logo" />
+    </div>
+      <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="Booking.html">Booking</a></li>
+      <li><a href="biographie.html">DJ Kheem H</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+  <div class="contact-container">
+    <h2>Contact</h2>
+
+    <div class="contact-info">
+      <p>Adresse : rue Rodolphe-Toepffer 8, c/o Bona Fide Business Sàrl, 1206 Genève</p>
+      <p>Téléphone : +41 79 505 84 43</p>
+      <p>Email : kheemh@gmail.com</p>
+      <p>
+        Instagram :
+        <a href="https://www.instagram.com/djkheemh?igsh=MW9xczl1MzVvY3E2eg==" target="_blank" rel="noopener noreferrer">
+          <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram" />
+          @djkheemh
+        </a>
+      </p>
+    </div>
+
+    <form action="#" method="post">
+      <label for="prenom">Prénom</label>
+      <input type="text" id="prenom" name="prenom" required placeholder="Votre prénom">
+
+      <label for="nom">Nom de famille</label>
+      <input type="text" id="nom" name="nom" required placeholder="Votre nom">
+
+      <label for="telephone">Téléphone</label>
+      <input type="tel" id="telephone" name="telephone" placeholder="Votre téléphone">
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" required placeholder="Votre email">
+
+      <label for="infos">Infos supplémentaires</label>
+      <textarea id="infos" name="infos" rows="4" placeholder="Votre message ou questions..."></textarea>
+
+      <input type="submit" value="Envoyer">
+    </form>
+  </div>
+
+
+
+<script>
+
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
