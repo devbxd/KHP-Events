@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .background-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background-color: rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo img {
+      height: 120px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li {
+      display: inline-block;
+    }
+
+    .nav-links a {
+      color: #ae8b38;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 40px 20px;
+      background-color: rgba(61, 54, 54, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    }
+
+    .contact-container h2 {
+      color: #ae8b38;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-info p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: 500;
+      color: #f0f0f0;
+    }
+
+    input, select, textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #ae8b38;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        margin: 40px 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <video autoplay muted loop class="background-video">
+    <source src="video.mp4" type="video/mp4" />
+    Votre navigateur ne supporte pas la vidéo.
+  </video>
+
+  <nav class="navbar">
+    <div class="logo">
+      <img src="1.jpg" alt="Logo" />
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="Booking.html">Booking</a></li>
+      <li><a href="biographie.html">DJ Kheem H</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+<div class="contact-container">
+  <h2>Contact</h2>
+
+  <div class="contact-info">
+    <p>Adresse : rue Rodolphe-Toepffer 8, c/o Bona Fide Business Sàrl, 1206 Genève</p>
+    <p>Téléphone : +41 79 505 84 43</p>
+    <p>Email :  kheemh@gmail.com</p>
+    <p>
+      Instagram :
+      <a href="https://www.instagram.com/djkheemh?igsh=MW9xczl1MzVvY3E2eg==" target="_blank" 
+         style="color: #ae8b38; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="Instagram" style="width: 20px; height: 20px;" />
+        @djkheemh
+      </a>
+    </p>
+  </div>
+
+  <form action="#" method="post">
+    <label for="prenom">Prénom</label>
+    <input type="text" id="prenom" name="prenom" required>
+
+    <label for="nom">Nom de famille</label>
+    <input type="text" id="nom" name="nom" required>
+
+    <label for="telephone">Téléphone</label>
+    <input type="tel" id="telephone" name="telephone">
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" required>
+
+<label for="email"> infos supplémentaire</label>
+    <input type="email" id="email" name="email" required>
+
+
+    <input type="submit" value="Envoyer">
+  </form>
+</div>
+
+
+
+</body>
+</html>
