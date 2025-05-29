@@ -10,6 +10,7 @@ body, html {
   color: #ae8b38;
   background-color: transparent;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 a {
@@ -53,22 +54,25 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px; /* taille d'origine */
+  padding: 10px 40px;
   background-color: rgba(0, 0, 0, 0.7);
   position: sticky;
   top: 0;
   z-index: 1000;
   color: #ae8b38;
-  margin-top: 0; /* enlever margin négatif */
+  flex-wrap: wrap;
 }
 
 .logo img {
-  height: 200px; /* taille d'origine */
+  height: 140px;
+  max-width: 100%;
 }
 
 .nav-links {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nav-links li {
@@ -105,6 +109,10 @@ ul {
   text-shadow: 0 2px 6px rgba(0,0,0,0.8);
 }
 
+.hero-content h2 {
+  font-size: 48px;
+}
+
 .hero-content p {
   font-size: 20px;
   margin-bottom: 30px;
@@ -131,21 +139,32 @@ ul {
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
+    align-items: flex-start;
     padding: 10px 20px;
   }
 
   .logo img {
-    height: 120px; /* réduire la taille logo sur mobile */
+    height: 100px;
   }
 
   .nav-links {
     flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .nav-links li {
+    width: 100%;
   }
 
   .nav-links a {
-    font-size: 14px;
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .hero-content {
