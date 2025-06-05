@@ -5,22 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Booking - Artistes disponibles</title>
   <style>
+    /* --- VIDÉO DE FOND --- */
+    .background-video {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.3;
+      pointer-events: none;
+    }
 
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
 
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-image: url('1.jpg'); /* Mets ton image ici */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.1; /* Ajuste la transparence */
-    z-index: -1;
-    pointer-events: none;
-  }
-
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
 
     .navbar {
       display: flex;
@@ -42,7 +52,7 @@
 
     .nav-links a {
       text-decoration: none;
-      color: #ae8b38 ;
+      color: #ae8b38;
       font-weight: bold;
       transition: color 0.3s;
     }
@@ -54,6 +64,8 @@
     .booking-section {
       padding: 80px 20px;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
 
     .booking-section h2 {
@@ -62,19 +74,20 @@
       margin-bottom: 50px;
     }
 
- .artist-cards {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
+    .artist-cards {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
+    .artist-link {
+      text-decoration: none;
+      display: block;
+    }
 
     .artist-card {
       background-color: #1e1e1e;
@@ -83,6 +96,7 @@
       width: 220px;
       box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
       transition: transform 0.3s;
+      cursor: pointer;
     }
 
     .artist-card:hover {
@@ -103,136 +117,195 @@
       margin: 0;
     }
 
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
 
+    .modal-content {
+      background-color: #1e1e1e;
+      padding: 30px;
+      border-radius: 10px;
+      color: white;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
 
-    /* MODAL */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 10;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  justify-content: center;
-  align-items: center;
-}
+    .modal.show .modal-content {
+      opacity: 1;
+      transform: scale(1);
+    }
 
-.modal-content {
-  background-color: #1e1e1e;
-  padding: 30px;
-  border-radius: 10px;
-  color: white;
-  width: 90%;
-  max-width: 500px;
-  position: relative;
-}
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #ae8b38;
+    }
 
-.close {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 28px;
-  cursor: pointer;
-  color: #ae8b38;
-}
+    .close:hover {
+      color: white;
+    }
 
-.close:hover {
-  color: white;
-}
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: #ae8b38;
+      cursor: pointer;
+      user-select: none;
+    }
 
+    @media (max-width: 600px) {
+      .artist-card {
+        width: 90%;
+      }
 
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+        background-color: rgba(0,0,0,0.9);
+        padding: 10px 0;
+        margin: 0;
+      }
 
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
+      .nav-links.show {
+        display: flex;
+      }
 
+      .navbar {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- Vidéo de fond -->
+  <video class="background-video" autoplay loop muted playsinline>
+    <source src="video.mp4" type="video/mp4">
+    Votre navigateur ne supporte pas la vidéo HTML5.
+  </video>
+
+  <!-- Overlay sombre -->
+  <div class="overlay"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">
       <img src="1.jpg" alt="Logo" />
     </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="booking.html">Booking</a></li>
       <li><a href="biographie.html">DJ Kheem H</a></li>
       <li><a href="location.html">Location</a></li>
+      <li><a href="playlist.html">playlist</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
-<section class="booking-section">
-  <h2>Artistes disponibles à la réservation</h2>
+  <section class="booking-section">
+    <h2>Artist Booking</h2>
 
-  <div class="artist-cards">
-    <div class="artist-card">
-      <img src="artiste1.jpg" alt="DJ Nova" onclick="openModal('BOHEMIAN un DJ mais aussi un Percussioniste. Son show HYBRIDE de set percussion et son énergie font trembler toutes les scènes où il se produit. Après plusieurs années d’expérience en France, il performe aussi à l’étranger dans des pays tels que le Portugal, l’Espagne, le Maroc, le Liban, la Bulgarie, le Canada, la Tunisie, la Roumanie, la Croatie, la Moldavie, les États-Unis, U.A.E… Il cumule plus de 800.000 streams sur SOUNDCLOUD, son dernier titre LA LUNA en collaboration avec ERAN HERCH déjà plus 100.000 streams sur SPOTIFY en 15 jours. Ses Remixes et ses titres sont déjà joués partout dans le monde et supportés par des deejays STARS tel que BLONDISH, FRANCIS MERCIER, ARODES, LA SANTA, ENZO SIFFREDI, NICO DE ANDREA, DJ CHUS, NITEFREAK, VILLANOVA, VALERON, ERAN HERCH, DIPLO, HUGEL, etc… et beaucoup de titres sont sur le point d’arriver.')">
-      <p>Bohemian</p>
+    <div class="artist-cards">
+      <a href="bohemian.html" class="artist-link">
+        <div class="artist-card">
+          <img src="artiste1.jpg" alt="Bohemian">
+          <p>Bohemian</p>
+        </div>
+      </a>
+
+      <a href="grossomoddo.html" class="artist-link">
+        <div class="artist-card">
+          <img src="artiste2.jpg" alt="GROSSOMODDO">
+          <p>GROSSOMODDO</p>
+        </div>
+      </a>
+
+      <a href="samantha.html" class="artist-link">
+        <div class="artist-card">
+          <img src="samantha.png" alt="Samantha">
+          <p>BIO SAMANTA FLORES</p>
+        </div>
+      </a>
+
+      <a href="Alexandre.html" class="artist-link">
+        <div class="artist-card">
+          <img src="alex.png" alt="Alexandre">
+          <p>Alexandre Billard</p>
+        </div>
+      </a>
     </div>
 
-    <div class="artist-card">
-      <img src="artiste2.jpg" alt="MC K-Ra" onclick="openModal('GROSSOMODDO est un duo basé dans le sud de la France, créé à la fin de l’année 2023. Leur musique est un savant mélange de house et d’afro house, tout en conservant une touche méditerranéenne unique, Leurs titres, soutenus et joués par les plus grands noms de la scène electronique, leur ont permis de s’imposer comme des incontournables du genre. Avec plusieurs Top 1 sur Beatport à leur actif ils incarnent la nouvelle génération de la scène house et afro house')">
-      <p>GROSSOMODDO</p>
+    <p style="margin-top: 50px; color: #ae8b38; font-size: 18px; font-style: italic;">
+      D'autres artistes vont bientôt signer… Restez connectés !
+    </p>
+  </section>
+
+  <!-- MODAL -->
+  <div id="artistModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3 id="modalName">Nom de l'artiste</h3>
+      <p id="modalBio">Biographie de l'artiste ici...</p>
     </div>
-
-
-
-
-<!-- Fenêtre modale (bio) -->
-<div id="artistModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3 id="modalName">Nom de l'artiste</h3>
-    <p id="modalBio">Biographie de l'artiste ici...</p>
   </div>
-</div>
 
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
 
+    const modal = document.getElementById("artistModal");
+    const modalName = document.getElementById("modalName");
+    const modalBio = document.getElementById("modalBio");
+    const closeBtn = document.querySelector(".close");
 
-
-
-  <!-- Message d'annonce -->
-  <p style="margin-top: 50px; color: #ae8b38; font-size: 18px; font-style: italic;">
-    D'autres artistes vont bientôt signer… Restez connectés !
-  </p>
-</section>
-
-
-
-
-<script>
-  const modal = document.getElementById("artistModal");
-  const modalName = document.getElementById("modalName");
-  const modalBio = document.getElementById("modalBio");
-  const closeBtn = document.querySelector(".close");
-
-  function openModal(name, bio) {
-    modalName.textContent = name;
-    modalBio.textContent = bio;
-    modal.style.display = "flex";
-  }
-
-  closeBtn.onclick = function() {
-    modal.style.display = "none";
-  }
-
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
+    function openModal(name, bio) {
+      modalName.textContent = name;
+      modalBio.textContent = bio;
+      modal.classList.add("show");
+      modal.style.display = "flex";
     }
-  }
-</script>
 
+    closeBtn.onclick = function () {
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 300);
+    }
 
-
-
-
-
-
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 300);
+      }
+    }
+  </script>
 
 </body>
 </html>
