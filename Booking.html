@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Booking - Artistes disponibles</title>
   <style>
+<<<<<<< HEAD
     /* --- VIDÉO DE FOND --- */
     .background-video {
       position: fixed;
@@ -26,6 +27,22 @@
       z-index: -1;
     }
 
+=======
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-image: url('1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
     body, html {
       margin: 0;
       padding: 0;
@@ -83,11 +100,14 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+<<<<<<< HEAD
 
     .artist-link {
       text-decoration: none;
       display: block;
     }
+=======
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
 
     .artist-card {
       background-color: #1e1e1e;
@@ -107,6 +127,7 @@
       width: 100%;
       height: 220px;
       object-fit: cover;
+      cursor: pointer;
     }
 
     .artist-card p {
@@ -136,6 +157,7 @@
       width: 90%;
       max-width: 500px;
       position: relative;
+<<<<<<< HEAD
       opacity: 0;
       transform: scale(0.9);
       transition: opacity 0.3s ease, transform 0.3s ease;
@@ -165,6 +187,90 @@
       cursor: pointer;
       user-select: none;
     }
+=======
+    }
+
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 28px;
+      cursor: pointer;
+      color: #ae8b38;
+    }
+
+    .close:hover {
+      color: white;
+    }
+
+    .artist-card {
+  cursor: pointer;
+}
+
+
+    @media (max-width: 600px) {
+  .artist-card {
+    width: 90%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .navbar {
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+
+.modal-content {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #ae8b38;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none; /* cache la nav par défaut */
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  .nav-links.show {
+    display: flex; /* affiche la nav quand active */
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+}
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
 
     @media (max-width: 600px) {
       .artist-card {
@@ -182,9 +288,12 @@
         margin: 0;
       }
 
+<<<<<<< HEAD
       .nav-links.show {
         display: flex;
       }
+=======
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
 
       .navbar {
         flex-direction: column;
@@ -214,7 +323,11 @@
       <img src="1.jpg" alt="Logo" />
     </div>
     <div class="menu-toggle" id="menu-toggle">☰</div>
+<<<<<<< HEAD
     <ul class="nav-links">
+=======
+ <ul class="nav-links">
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
       <li><a href="index.html">Accueil</a></li>
       <li><a href="booking.html">Booking</a></li>
       <li><a href="biographie.html">DJ Kheem H</a></li>
@@ -225,6 +338,7 @@
   </nav>
 
   <section class="booking-section">
+<<<<<<< HEAD
     <h2>Artist Booking</h2>
 
     <div class="artist-cards">
@@ -255,6 +369,20 @@
           <p>Alexandre Billard</p>
         </div>
       </a>
+=======
+    <h2>Artistes disponibles à la réservation</h2>
+
+    <div class="artist-cards">
+      <div class="artist-card">
+        <img src="artiste1.jpg" alt="Bohemian" onclick="openModal('Bohemian', 'BOHEMIAN un DJ mais aussi un Percussioniste. Son show HYBRIDE de set percussion et son énergie font trembler toutes les scènes où il se produit. Après plusieurs années d’expérience en France, il performe aussi à l’étranger dans des pays tels que le Portugal, l’Espagne, le Maroc, le Liban, la Bulgarie, le Canada, la Tunisie, la Roumanie, la Croatie, la Moldavie, les États-Unis, U.A.E… Il cumule plus de 800.000 streams sur SOUNDCLOUD, son dernier titre LA LUNA en collaboration avec ERAN HERCH déjà plus 100.000 streams sur SPOTIFY en 15 jours. Ses Remixes et ses titres sont déjà joués partout dans le monde et supportés par des deejays STARS tel que BLONDISH, FRANCIS MERCIER, ARODES, LA SANTA, ENZO SIFFREDI, NICO DE ANDREA, DJ CHUS, NITEFREAK, VILLANOVA, VALERON, ERAN HERCH, DIPLO, HUGEL, etc…')">
+        <p>Bohemian</p>
+      </div>
+
+      <div class="artist-card">
+        <img src="artiste2.jpg" alt="GROSSOMODDO" onclick="openModal('GROSSOMODDO', 'GROSSOMODDO est un duo basé dans le sud de la France, créé à la fin de l’année 2023. Leur musique est un savant mélange de house et d’afro house, tout en conservant une touche méditerranéenne unique. Leurs titres, soutenus et joués par les plus grands noms de la scène électronique, leur ont permis de s’imposer comme des incontournables du genre. Avec plusieurs Top 1 sur Beatport à leur actif, ils incarnent la nouvelle génération de la scène house et afro house.')">
+        <p>GROSSOMODDO</p>
+      </div>
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
     </div>
 
     <p style="margin-top: 50px; color: #ae8b38; font-size: 18px; font-style: italic;">
@@ -271,6 +399,7 @@
     </div>
   </div>
 
+<<<<<<< HEAD
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -306,6 +435,45 @@
       }
     }
   </script>
+=======
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
+
+  const modal = document.getElementById("artistModal");
+  const modalName = document.getElementById("modalName");
+  const modalBio = document.getElementById("modalBio");
+  const closeBtn = document.querySelector(".close");
+
+  function openModal(name, bio) {
+    modalName.textContent = name;
+    modalBio.textContent = bio;
+    modal.classList.add("show");
+    modal.style.display = "flex";
+  }
+
+  closeBtn.onclick = function () {
+    modal.classList.remove("show");
+    setTimeout(() => {
+      modal.style.display = "none";
+    }, 300); 
+  }
+
+  window.onclick = function (event) {
+    if (event.target === modal) {
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.style.display = "none";
+      }, 300);
+    }
+  }
+</script>
+
+>>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
 
 </body>
 </html>
