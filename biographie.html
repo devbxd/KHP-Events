@@ -35,12 +35,15 @@
       font-size: 24px;
       cursor: pointer;
       color: #ae8b38;
+      user-select: none;
     }
 
     .nav-links {
       list-style: none;
       display: flex;
       gap: 20px;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links li a {
@@ -153,68 +156,42 @@
       }
     }
 
-
-
     @media (max-width: 600px) {
-  .artist-card {
-    width: 90%;
-  }
+      .artist-card {
+        width: 90%;
+      }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
+      .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
 
-  .navbar {
-    flex-direction: column;
-    padding: 20px;
-  }
-}
+      .navbar {
+        flex-direction: column;
+        padding: 20px;
+        align-items: flex-start;
+      }
 
+      .menu-toggle {
+        display: block;
+      }
 
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  color: #ae8b38;
-  cursor: pointer;
-  user-select: none;
-}
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+        background-color: rgba(0,0,0,0.9);
+        padding: 10px 0;
+        margin: 0;
+      }
 
-@media (max-width: 600px) {
-  .menu-toggle {
-    display: block;
-  }
-  
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    width: 100%;
-    background-color: rgba(0,0,0,0.9);
-    padding: 10px 0;
-    margin: 0;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
-}
-
-
-
-
-
-
-
-
+      .nav-links.show {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -227,53 +204,35 @@
     <div class="logo">
       <img src="1.jpg" alt="Logo" />
     </div>
-    <div class="menu-toggle" id="menu-toggle">☰</div>
-<<<<<<< HEAD
+    <div class="menu-toggle" id="menu-toggle" aria-label="Menu mobile" role="button" tabindex="0">☰</div>
     <ul class="nav-links" id="navLinks">
-=======
- <ul class="nav-links" id="navLinks">
->>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
       <li><a href="index.html">Accueil</a></li>
       <li><a href="Booking.html">Booking</a></li>
       <li><a href="biographie.html">DJ Kheem H</a></li>
       <li><a href="location.html">Location</a></li>
-<<<<<<< HEAD
-      <li><a href="playlist.html">playlist</a></li>
-=======
->>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
       <li><a href="contact.html">Contact</a></li>
     </ul>
-
   </nav>
 
   <section class="biography-container">
     <div class="bio-texts">
       <div class="bio-text">
-<<<<<<< HEAD
-        <h2> Biographie – Chef d’entreprise / Directeur artistique</h2>
-        <p>Kheem H est un entrepreneur franco-afghan basé en Suisse, spécialisé dans l’événementiel, la direction artistique et les prestations musicales haut de gamme.
-Fort de plus de 30 ans d’expérience dans l’industrie musicale et événementielle, il est aujourd’hui à la tête de plusieurs projets artistiques et supervise l’ambiance musicale d’établissements prestigieux, dont Les Voiles à Genève.
-
-Sa vision entrepreneuriale allie excellence, exigence et sens du détail. Kheem H conçoit des expériences immersives, mêlant esthétisme sonore, cohérence artistique et émotions fortes. En tant que directeur artistique, il accompagne les marques, lieux et événements dans la création d’identités musicales fortes et sur mesure.</p>
-      </div>
-      <div class="bio-text">
-        <h2> Biographie – DJ & Producteur</h2>
-        <p>KHEEM H est un DJ, producteur et directeur artistique français d’origine afghane, basé en Suisse.
-Actif depuis plus de 30 ans, il s’est imposé comme une figure incontournable grâce à un style musical unique mêlant musiques du monde et sonorités électroniques.
-
-Au fil de sa carrière, Kheem a partagé la scène avec les plus grands noms de la scène électro – David Guetta, Martin Garrix ou encore HUGEL – lors de soirées et festivals prestigieux à travers le monde : New York, Londres, San Francisco, Saint-Tropez, Monaco…
-
-Reconnu pour son identité artistique singulière et sa capacité à faire voyager les publics à travers ses sets, il incarne une vision musicale ouverte, métissée et profondément humaine.
-
-Parallèlement à ses performances, Kheem est également directeur artistique de plusieurs établissements haut de gamme en Suisse et à l’international, façonnant leur univers sonore avec exigence et créativité.</p>
-=======
         <h2>Biographie – Chef d’entreprise / Directeur artistique</h2>
-        <p>Kheem H est un entrepreneur franco-afghan basé en Suisse, spécialisé dans l’événementiel, la direction artistique et les prestations musicales haut de gamme. Fort de plus de 30 ans d’expérience dans l’industrie musicale et événementielle, il est aujourd’hui à la tête de plusieurs projets artistiques et supervise l’ambiance musicale d’établissements prestigieux, dont Les Voiles à Genève. Sa vision entrepreneuriale allie excellence, exigence et sens du détail. Kheem H conçoit des expériences immersives, mêlant esthétisme sonore, cohérence artistique et émotions fortes. En tant que directeur artistique, il accompagne les marques, lieux et événements dans la création d’identités musicales fortes et sur mesure.</p>
+        <p>
+          Kheem H est un entrepreneur franco-afghan basé en Suisse, spécialisé dans l’événementiel, la direction artistique et les prestations musicales haut de gamme. 
+          Fort de plus de 30 ans d’expérience dans l’industrie musicale et événementielle, il est aujourd’hui à la tête de plusieurs projets artistiques et supervise l’ambiance musicale d’établissements prestigieux, dont Les Voiles à Genève. 
+          Sa vision entrepreneuriale allie excellence, exigence et sens du détail. Kheem H conçoit des expériences immersives, mêlant esthétisme sonore, cohérence artistique et émotions fortes. En tant que directeur artistique, il accompagne les marques, lieux et événements dans la création d’identités musicales fortes et sur mesure.
+        </p>
       </div>
       <div class="bio-text">
         <h2>Biographie – DJ & Producteur</h2>
-        <p>KHEEM H est un DJ, producteur et directeur artistique français d’origine afghane, basé en Suisse. Actif depuis plus de 30 ans, il s’est imposé comme une figure incontournable grâce à un style musical unique mêlant musiques du monde et sonorités électroniques. Au fil de sa carrière, Kheem a partagé la scène avec les plus grands noms de la scène électro – David Guetta, Martin Garrix ou encore HUGEL – lors de soirées et festivals prestigieux à travers le monde : New York, Londres, San Francisco, Saint-Tropez, Monaco… Reconnu pour son identité artistique singulière et sa capacité à faire voyager les publics à travers ses sets, il incarne une vision musicale ouverte, métissée et profondément humaine. Parallèlement à ses performances, Kheem est également directeur artistique de plusieurs établissements haut de gamme en Suisse et à l’international, façonnant leur univers sonore avec exigence et créativité.</p>
->>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
+        <p>
+          KHEEM H est un DJ, producteur et directeur artistique français d’origine afghane, basé en Suisse. 
+          Actif depuis plus de 30 ans, il s’est imposé comme une figure incontournable grâce à un style musical unique mêlant musiques du monde et sonorités électroniques. 
+          Au fil de sa carrière, Kheem a partagé la scène avec les plus grands noms de la scène électro – David Guetta, Martin Garrix ou encore HUGEL – lors de soirées et festivals prestigieux à travers le monde : New York, Londres, San Francisco, Saint-Tropez, Monaco… 
+          Reconnu pour son identité artistique singulière et sa capacité à faire voyager les publics à travers ses sets, il incarne une vision musicale ouverte, métissée et profondément humaine. 
+          Parallèlement à ses performances, Kheem est également directeur artistique de plusieurs établissements haut de gamme en Suisse et à l’international, façonnant leur univers sonore avec exigence et créativité.
+        </p>
       </div>
     </div>
     <div class="bio-photos">
@@ -283,21 +242,20 @@ Parallèlement à ses performances, Kheem est également directeur artistique de
   </section>
 
   <script>
-<<<<<<< HEAD
-    function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('show');
-    }
-=======
-   const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-menuToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
 
->>>>>>> 3f90150280a9a37eae4c20c2bf231e449cbbcd3c
-    
+    // Accessibilité : toggle via clavier (Entrée, Espace)
+    menuToggle.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navLinks.classList.toggle('show');
+      }
+    });
   </script>
 </body>
 </html>
